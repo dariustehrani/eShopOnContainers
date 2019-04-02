@@ -1,0 +1,35 @@
+ingress:
+  enabled: enabled
+  annotations:
+  kubernetes.io/ingress.class: nginx
+  kubernetes.io/tls-acme: "true"
+  certmanager.k8s.io/issuer: "letsencrypt-staging"
+  certmanager.k8s.io/acme-challenge-type: http01
+  labels: {}
+  path: /
+  hosts:
+    - eshop.4711.cloud
+  tls:
+    - secretName: eshop-4711-crt
+      hosts:
+        - eshop.4711.cloud
+
+
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: eshop-store-front
+  namespace: eshop
+spec:
+  secretName: storefront-4711-crt
+  dnsNames:
+  - eshop.4711.cloud
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+        - eshop.4711.cloud
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer

@@ -1,14 +1,14 @@
 ingress:
   annotations: 
   kubernetes.io/ingress.class: nginx
+  nginx.ingress.kubernetes.io/ssl-redirect:  false
   kubernetes.io/tls-acme: "true"
   certmanager.k8s.io/issuer: "letsencrypt-staging"
   certmanager.k8s.io/acme-challenge-type: http01  
   path: /
-  host:
-    - eshop.4711.cloud
+  host: eshop.4711.cloud
   tls:
-  secretName: eshop
+  secretName: eshop-crt
   hosts:
   - eshop.4711.cloud
 
