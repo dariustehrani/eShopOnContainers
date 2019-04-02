@@ -45,7 +45,7 @@ if ([string]::IsNullOrEmpty($dns)) {
 
 if ($clean) {
     Write-Host "Cleaning previous helm releases..." -ForegroundColor Green
-    helm delete --purge $(helm ls eshop) 
+    helm delete --purge $(helm ls -q eshop) 
     Write-Host "Previous releases deleted" -ForegroundColor Green
 }
 
