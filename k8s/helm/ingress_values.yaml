@@ -7,4 +7,8 @@ ingress:
   path: /
   host:
     - eshop.4711.cloud
- 
+  tls:
+       - secretName: eshop-4711-cloud
+         hosts:
+           - eshop.4711.cloud
+
