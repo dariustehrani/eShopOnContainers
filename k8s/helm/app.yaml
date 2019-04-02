@@ -3,7 +3,8 @@
 
 
 app:                                                  # app global settings
-  name: "my-eshop"                                    # Override for custom app name
+  name: "brandstore"                                    # Override for custom app name
+  namespace: eshop
   ingress:                                            # ingress related settings
     entries:
       basket: basket-api                              # ingress entry for basket api
@@ -25,6 +26,7 @@ app:                                                  # app global settings
       webhooks: webhooks-api                          # ingress entry for webhooks api
       webhooksweb: webhooks-web                       # ingress entry for webhooks web demo client
   svc:
+  namespace: eshop
       basket: basket                                    # service name for basket api
       catalog: catalog                                  # service name for catalog api
       ordering: ordering                                # service name for ordering api

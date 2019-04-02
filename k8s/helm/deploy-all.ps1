@@ -1,3 +1,4 @@
+#!/usr/bin/pwsh -Command
 Param(
     [parameter(Mandatory=$false)][string]$registry,
     [parameter(Mandatory=$false)][string]$dockerUser,
@@ -44,7 +45,7 @@ if ([string]::IsNullOrEmpty($dns)) {
 
 if ($clean) {
     Write-Host "Cleaning previous helm releases..." -ForegroundColor Green
-    helm delete --purge $(helm ls -q) 
+    helm delete --purge $(helm ls eshop) 
     Write-Host "Previous releases deleted" -ForegroundColor Green
 }
 
