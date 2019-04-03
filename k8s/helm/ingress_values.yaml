@@ -7,7 +7,7 @@ ingress:
   certmanager.k8s.io/acme-challenge-type: http01  
   path: /
   host: eshop.4711.cloud
-  tls:
+tls:
   secretName: eshop-crt
   hosts:
   - eshop.4711.cloud
